@@ -3,6 +3,6 @@ class InformalParserInterface:
     """Loads in file for extracting text"""
     pass
 
-  def extract_text(self, full_file_name: str) -> dict:
+  def extract_text(self, full_file_path: str) -> dict:
     """Extracts text from the current file"""
     pass
