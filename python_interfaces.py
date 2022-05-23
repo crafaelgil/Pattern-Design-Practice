@@ -20,3 +20,16 @@ class EmailParser(InformalParserInterface):
 
   def extract_text_from_email(self, full_file_path: str) -> dict:
       pass
+
+print(issubclass(PDFParser, InformalParserInterface))
+print(issubclass(EmailParser, InformalParserInterface))
+
+class ParserMeta(type):
+  def __instancecheck__(cls, instance):
+    return cls.__subclasscheck__(type(instance))
+
+  def __subclasscheck__(cls, subclass):
+    return (hasattr(subclass, 'load_data_source') and
+            callable(subclass.load_data_source) and
+            hasattr(subclass, 'extract_text') and
+            callable(subclass.extract_text))
