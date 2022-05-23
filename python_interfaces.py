@@ -33,3 +33,6 @@ class ParserMeta(type):
             callable(subclass.load_data_source) and
             hasattr(subclass, 'extract_text') and
             callable(subclass.extract_text))
+
+def UpdatedInformalParserInterface(metaclass=ParserMeta):
+  pass
