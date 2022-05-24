@@ -21,8 +21,8 @@ class EmailParser(InformalParserInterface):
   def extract_text_from_email(self, full_file_path: str) -> dict:
       pass
 
-print(issubclass(PDFParser, InformalParserInterface))
-print(issubclass(EmailParser, InformalParserInterface))
+# print(issubclass(PDFParser, InformalParserInterface))
+# print(issubclass(EmailParser, InformalParserInterface))
 
 class ParserMeta(type):
   def __instancecheck__(cls, instance):
@@ -34,5 +34,22 @@ class ParserMeta(type):
             hasattr(subclass, 'extract_text') and
             callable(subclass.extract_text))
 
-def UpdatedInformalParserInterface(metaclass=ParserMeta):
+class UpdatedInformalParserInterface(metaclass=ParserMeta):
   pass
+
+class PDFParserNew:
+  def load_data_source(self, path: str, file_name: str) -> str:
+    pass
+
+  def extract_text(self, full_file_path: str) -> dict:
+    pass
+
+class EmailParserNew:
+  def load_data_source(self, path: str, file_name: str) -> str:
+    pass
+
+  def extract_text_from_email(self, full_file_path: str) -> dict:
+    pass
+
+print(issubclass(PDFParserNew, UpdatedInformalParserInterface))
+print(issubclass(EmailParserNew, UpdatedInformalParserInterface))
