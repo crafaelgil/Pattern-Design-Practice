@@ -21,3 +21,7 @@ class Component(ABC):
   @abstractmethod
   def operation(Self) -> str:
     pass
+
+class Leaf(Component):
+  def operation(Self) -> str:
+      return "Leaf"
